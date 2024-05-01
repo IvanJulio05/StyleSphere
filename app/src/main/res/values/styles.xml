@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Establece el color de fondo de la ActionBar -->
+        <item name="colorPrimary">#F4F3EE</item>
+        <!-- Establece el color de la barra de estado -->
+        <item name="colorPrimaryDark">#B22222</item>
+    </style>
+
+    <style name="AppTheme2" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Establece el color de fondo de la ActionBar -->
+        <item name="colorPrimary">#F4F3EE</item>
+        <!-- Establece el color de la barra de estado -->
+        <item name="colorPrimaryDark">#B22222</item>
+    </style>
+
+    <style name="Widget.AppTheme.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.AppTheme.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+    <style name="BottomNavigation">
+        <item name="android:background">@color/brown_normal</item>
+        <item name="itemIconTint">@color/white</item>
+        <item name="itemTextColor">@color/white</item>
+    </style>
+
+</resources>

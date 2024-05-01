@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CrearCuenta">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="@drawable/register">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="157dp"
+            android:layout_marginBottom="36dp"
+            android:text="CREA TU CUENTA"
+            android:textAlignment="viewStart"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/inputPassword"
+        android:layout_width="312dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/inputPassword2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/inputPassword2"
+        android:layout_width="312dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/inputName"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:hint="Validar contraseña"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/inputEmail"
+        android:layout_width="312dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/inputPassword"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="33dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <Button
+        android:id="@+id/btCrear"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="57dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="177dp"
+        android:background="@drawable/botonlogin"
+        android:backgroundTint="@color/black"
+        android:onClick="CrearCuenta"
+        android:text="Crear cuenta"
+        android:textColor="@color/white" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="160dp"
+        android:background="?android:attr/listDivider" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="69dp"
+        android:layout_height="63dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="342dp"
+        android:layout_marginBottom="-607dp"
+        android:onClick="regresar"
+        app:srcCompat="@drawable/flecha" />
+
+    <Button
+        android:id="@+id/botonGoogle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="22dp"
+        android:background="@drawable/botongooglefacebook"
+        android:drawableLeft="@drawable/iconogoogle"
+        android:onClick="btnGogoogle"
+        android:padding="10dp"
+        android:text="continuar con Goole" />
+
+    <Button
+        android:id="@+id/botonFacebook"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/botonGoogle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/botongooglefacebook"
+        android:drawableLeft="@drawable/iconoface"
+        android:padding="10dp"
+        android:text="continuar con Facebook" />
+
+    <EditText
+        android:id="@+id/inputName"
+        android:layout_width="312dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btCrear"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="21dp"
+        android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:hint="Nombre"
+        android:inputType="textPersonName" />
+
+</RelativeLayout>

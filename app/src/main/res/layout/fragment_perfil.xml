@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerfilFragment"
+    android:background="@color/Dark_white">
+
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/perfil_usuario_fondo_arriba">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="122dp"
+            android:layout_height="106dp"
+            android:layout_above="@+id/txtagregarFoto"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="227dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/perfilbackgroup"
+            android:src="@drawable/ic_perm_group_personal_info" />
+
+        <TextView
+            android:id="@+id/txtagregarFoto"
+            android:layout_width="186dp"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="176dp"
+            android:layout_marginBottom="19dp"
+            android:text="Agregar Foto"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtNombrePerfil"
+            android:layout_width="176dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="81dp"
+            android:text="Ivan camilo"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlconteiner"
+        android:layout_width="match_parent"
+        android:layout_height="507dp"
+        android:layout_gravity="bottom"
+        android:background="@color/Dark_white">
+
+        <RelativeLayout
+            android:id="@+id/rlVender"
+            android:layout_width="match_parent"
+            android:layout_height="97dp"
+            android:layout_above="@+id/rlCerraSession"
+            android:layout_gravity="bottom"
+
+            android:layout_marginBottom="0dp"
+            android:background="@color/white">
+
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="277dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="117dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginBottom="38dp"
+                android:drawableRight="@drawable/flecha_derecha"
+                android:text="¿Quieres vender tu marca aqui?"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="117dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="6dp"
+                android:text="Vende tus producto de forma segura y confiable."
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="35dp"
+                android:layout_height="54dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="288dp"
+                android:layout_marginBottom="18dp"
+                android:src="@drawable/icon_vender" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlComprado"
+            android:layout_width="match_parent"
+            android:layout_height="91dp"
+            android:layout_above="@+id/rlVender"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="0dp"
+            android:background="@color/white">
+
+
+            <TextView
+                android:id="@+id/txtComprado"
+                android:layout_width="282dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="109dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginBottom="48dp"
+                android:drawableRight="@drawable/flecha_derecha"
+                android:text="Historial de productos"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtCompradoDescrip"
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="109dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginBottom="15dp"
+                android:text="ver todos los productos que has comprado"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="35dp"
+                android:layout_height="54dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="299dp"
+                android:layout_marginBottom="13dp"
+                android:src="@drawable/icon_historial" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlDatosPersonales"
+            android:layout_width="match_parent"
+            android:layout_height="91dp"
+            android:layout_above="@+id/rlMap"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="0dp"
+            android:background="@color/white">
+
+
+            <TextView
+                android:id="@+id/txtDatosPersonales"
+                android:layout_width="297dp"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txtDatosPersonalesDescrip"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="98dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginBottom="-1dp"
+                android:drawableRight="@drawable/flecha_derecha"
+                android:text="Mis Datos"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtDatosPersonalesDescrip"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="98dp"
+                android:layout_marginEnd="83dp"
+                android:layout_marginBottom="11dp"
+                android:text="Modifica tu informacion personal"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="35dp"
+                android:layout_height="54dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="307dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/icon_person" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlMap"
+            android:layout_width="match_parent"
+            android:layout_height="91dp"
+            android:layout_above="@+id/rlComprado"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="0dp"
+            android:background="@color/white">
+
+
+            <TextView
+                android:id="@+id/txtMap"
+                android:layout_width="291dp"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txtMapDescrip"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="102dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginBottom="0dp"
+                android:drawableRight="@drawable/flecha_derecha"
+                android:text="Map"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/txtMapDescrip"
+                android:layout_width="269dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="102dp"
+                android:layout_marginEnd="41dp"
+                android:layout_marginBottom="20dp"
+
+                android:text="mira tu direccion en el mapa"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="35dp"
+                android:layout_height="54dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="302dp"
+                android:layout_marginBottom="12dp"
+                android:src="@drawable/icon_map" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlCerraSession"
+            android:layout_width="match_parent"
+            android:layout_height="91dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="59dp"
+            android:background="@color/white"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/btCerrarSesion"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="26dp"
+                android:background="@drawable/botonlogin"
+                android:onClick="closedSession"
+                android:text="Cerrar session"
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
