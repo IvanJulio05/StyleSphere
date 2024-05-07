@@ -59,7 +59,7 @@ public class UserService {
 
                 }
                 else{
-                    ucb.recibirUsuario(user);
+                    ucb.recibirUsuario(null);
                 }
             }
         });
@@ -120,12 +120,12 @@ public class UserService {
         return correcto;
     }
 
-    public void uploadPhoto(Uri uri, String identificador, String folder, Context e){
+    public void uploadPhoto(Uri uri, String identificador, Context e){
         progressDialog= new ProgressDialog(e);
         progressDialog.setMessage("Actualizando foto");
         progressDialog.show();
 
-        StorageReference storageRef = storage.getReference().child(folder).child(identificador+".jpa");
+        StorageReference storageRef = storage.getReference().child("photoUser").child(identificador);
 
         storageRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override

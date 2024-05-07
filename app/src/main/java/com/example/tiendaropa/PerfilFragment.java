@@ -44,6 +44,7 @@ public class PerfilFragment extends Fragment {
     private Button cerrar;
     private RelativeLayout datosPersonal;
     private TextView addFoto;
+    private RelativeLayout vender;
     private UserService userService= new UserService();
 
     private ImageView photoPefilUser;
@@ -139,6 +140,14 @@ public class PerfilFragment extends Fragment {
         //nombrePerfil.setText("carlos juan");
         cerrar = (Button) view.findViewById(R.id.btCerrarSesion);
         datosPersonal = (RelativeLayout) view.findViewById(R.id.rlDatosPersonales);
+        vender = (RelativeLayout) view.findViewById(R.id.rlVender);
+
+        vender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
         datosPersonal.setOnClickListener(new View.OnClickListener() {
@@ -208,7 +217,7 @@ public class PerfilFragment extends Fragment {
         if(requestCode == COD_SEL_IMAGE && resultCode == RESULT_OK && data!=null && data.getData() != null){
             image_url = data.getData();
 
-            userService.uploadPhoto(image_url,in.getStringExtra("email"),"photoUser",getContext());
+            userService.uploadPhoto(image_url,in.getStringExtra("email"),getContext());
         }
     }
 
