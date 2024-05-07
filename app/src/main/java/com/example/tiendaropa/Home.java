@@ -11,8 +11,16 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.tiendaropa.Models.User;
+import com.example.tiendaropa.Services.UserService;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Home extends AppCompatActivity {
 
@@ -21,6 +29,8 @@ public class Home extends AppCompatActivity {
     CarritoFragment carritoFragment = new CarritoFragment();
     InicioFragment inicioFragment = new InicioFragment();
     FavoritoFragment favoritoFragment = new FavoritoFragment();
+
+    private UserService userService = new UserService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +45,9 @@ public class Home extends AppCompatActivity {
         SharedPreferences.Editor prefsEdit= prefs.edit();
         prefsEdit.putString("email",intent.getStringExtra("email"));
         prefsEdit.apply();
-        //NOTA: falta implementar el cerrar session
+
+        //Guardado de datos en la base de datos Firestora
+        guardarUsuario();
     }
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -67,6 +79,23 @@ public class Home extends AppCompatActivity {
         transaction.commit();
     }
 
+    //guardar usuario en la base de datos
+    public void guardarUsuario(){
+        Intent intent = getIntent();
+        String email=intent.getStringExtra("email");
+        String name = intent.getStringExtra("name");
+        User user = new User();
+
+        user.setEmail(email);
+        if(!name.equals("-")){
+            user.setName(name);
+        }
+
+        userService.InsertUser(user);
+
+
+
+    }
 
 
 }

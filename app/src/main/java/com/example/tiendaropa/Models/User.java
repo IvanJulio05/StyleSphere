@@ -1,10 +1,11 @@
 package com.example.tiendaropa.Models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
 
-    private String url_img;
+    private String url_img;//foto de perfil
     private String name;
     private String surname;
     private String email;
@@ -40,7 +41,9 @@ public class User {
     }
 
     public User(){
-
+       shoppingCar=new ArrayList<>();
+       favoriteProduct=new ArrayList<>();
+       purchasedProducts=new ArrayList<>();
     }
 
     public String getUrl_img() {

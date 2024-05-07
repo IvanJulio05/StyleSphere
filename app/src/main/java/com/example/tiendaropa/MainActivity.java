@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
     private void showHome(String email){
         Intent homeIntent = new Intent(MainActivity.this,Home.class);
         homeIntent.putExtra("email",email);
+        homeIntent.putExtra("name","-");
+
         startActivity(homeIntent);
     }
 

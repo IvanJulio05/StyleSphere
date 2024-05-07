@@ -22,17 +22,17 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="122dp"
-            android:layout_height="106dp"
+            android:layout_width="159dp"
+            android:layout_height="122dp"
             android:layout_above="@+id/txtagregarFoto"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="43dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="227dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/perfilbackgroup"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="205dp"
+            android:layout_marginBottom="1dp"
+
             android:src="@drawable/ic_perm_group_personal_info" />
 
         <TextView
@@ -54,8 +54,8 @@
             android:layout_height="60dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="27dp"
-            android:layout_marginBottom="81dp"
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="82dp"
             android:text="Ivan camilo"
             android:textSize="24sp" />
 

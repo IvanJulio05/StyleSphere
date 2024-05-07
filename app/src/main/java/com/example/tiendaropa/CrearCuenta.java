@@ -84,6 +84,7 @@ public class CrearCuenta extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+                        //guardando usuarios en la base de datos
                         Intent homeIntent = new Intent(CrearCuenta.this,Home.class);
                         homeIntent.putExtra("email",email.getText().toString());
                         homeIntent.putExtra("name",name.getText().toString());
@@ -141,7 +142,7 @@ public class CrearCuenta extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 Intent homeIntent = new Intent(CrearCuenta.this,Home.class);
                                 homeIntent.putExtra("email",accout.getEmail());
-                                homeIntent.putExtra("name",name.toString());
+                                homeIntent.putExtra("name","-");
                                 startActivity(homeIntent);
                             } else{
                                 showAlert();
