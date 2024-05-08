@@ -7,20 +7,159 @@
     tools:context=".Vender">
 
 
-
     <include
-        layout="@layout/custom_toolbar_datos"/>
+        android:id="@+id/include"
+        layout="@layout/custom_toolbar_datos" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:id="@+id/EnviarV"
+        android:layout_width="99dp"
+        android:layout_height="56dp"
+        android:backgroundTint="#000000"
+
+        android:fontFamily="@font/monti"
+        android:text="Enviar"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.823"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.626" />
+        app:layout_constraintVertical_bias="0.953" />
+
+
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="220dp"
+        android:layout_height="51dp"
+        android:background="@drawable/edit_text_background"
+        android:fontFamily="@font/monti"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:text="Precio"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.611" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="227dp"
+        android:layout_height="59dp"
+        android:fontFamily="@font/monti"
+        android:paddingLeft="8dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Nombre Del Producto"
+        android:textColor="#FAFAFA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13" />
+
+
+    <EditText
+        android:id="@+id/editTextText3"
+        android:layout_width="230dp"
+        android:layout_height="64dp"
+        android:background="@drawable/edit_text_background"
+        android:fontFamily="@font/monti"
+        android:paddingLeft="8dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Descripción"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.244" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="223dp"
+        android:layout_height="58dp"
+        android:background="@drawable/edit_text_background"
+        android:fontFamily="@font/monti"
+        android:paddingLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.735" />
+
+    <EditText
+        android:id="@+id/editTextText4"
+        android:layout_width="227dp"
+        android:layout_height="67dp"
+        android:background="@drawable/edit_text_background"
+        android:fontFamily="@font/monti"
+        android:paddingLeft="8dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Stock"
+        android:textColor="#FAFAFA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.373" />
+
+    <EditText
+        android:id="@+id/editTextText5"
+        android:layout_width="219dp"
+        android:layout_height="53dp"
+        android:background="@drawable/edit_text_background"
+        android:fontFamily="@font/monti"
+        android:paddingLeft="8dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Talla"
+        android:textColor="#F8F8F8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="158dp"
+        android:layout_height="56dp"
+        android:fontFamily="@font/monti"
+        android:text="¿Envio Gratis?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.832" />
+
+    <Button
+        android:id="@+id/AggImgV"
+        android:layout_width="154dp"
+        android:layout_height="56dp"
+        android:backgroundTint="#000000"
+        android:fontFamily="@font/monti"
+
+        android:text="Añadir Imagen"
+        android:textColor="#FAFAFA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
