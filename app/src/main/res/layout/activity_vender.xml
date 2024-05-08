@@ -12,12 +12,13 @@
         layout="@layout/custom_toolbar_datos" />
 
     <Button
-        android:id="@+id/EnviarV"
+        android:id="@+id/enviarF"
         android:layout_width="99dp"
         android:layout_height="56dp"
         android:backgroundTint="#000000"
 
         android:fontFamily="@font/monti"
+        android:onClick="guardar"
         android:text="Enviar"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,61 +29,77 @@
         app:layout_constraintVertical_bias="0.953" />
 
 
-
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/precioProducto"
         android:layout_width="220dp"
         android:layout_height="51dp"
         android:background="@drawable/edit_text_background"
-        android:fontFamily="@font/monti"
         android:ems="10"
-        android:inputType="text"
+        android:fontFamily="@font/monti"
+        android:hint="Precio"
+        android:inputType="number"
         android:paddingLeft="8dp"
-        android:text="Precio"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.408"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintVertical_bias="0.523" />
 
     <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="227dp"
-        android:layout_height="59dp"
-        android:fontFamily="@font/monti"
-        android:paddingLeft="8dp"
+        android:id="@+id/marcaProducto"
+        android:layout_width="220dp"
+        android:layout_height="51dp"
         android:background="@drawable/edit_text_background"
         android:ems="10"
+        android:fontFamily="@font/monti"
+        android:hint="Marca"
         android:inputType="text"
-        android:text="Nombre Del Producto"
+        android:paddingLeft="8dp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.629" />
+
+    <EditText
+        android:id="@+id/nombreProducto"
+        android:layout_width="227dp"
+        android:layout_height="51dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:fontFamily="@font/monti"
+        android:hint="Nombre Del Producto"
+        android:inputType="text"
+        android:paddingLeft="8dp"
         android:textColor="#FAFAFA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
-
+        app:layout_constraintVertical_bias="0.108" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/descripcionProducto"
         android:layout_width="230dp"
-        android:layout_height="64dp"
+        android:layout_height="51dp"
         android:background="@drawable/edit_text_background"
-        android:fontFamily="@font/monti"
-        android:paddingLeft="8dp"
         android:ems="10"
+        android:fontFamily="@font/monti"
+        android:hint="Descripción"
         android:inputType="text"
-        android:text="Descripción"
+        android:paddingLeft="8dp"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.244" />
+        app:layout_constraintVertical_bias="0.21" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -93,48 +110,49 @@
         android:paddingLeft="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.735" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/stockProducto"
         android:layout_width="227dp"
-        android:layout_height="67dp"
+        android:layout_height="51dp"
         android:background="@drawable/edit_text_background"
-        android:fontFamily="@font/monti"
-        android:paddingLeft="8dp"
         android:ems="10"
-        android:inputType="text"
-        android:text="Stock"
+        android:fontFamily="@font/monti"
+        android:hint="Stock"
+        android:inputType="number"
+        android:paddingLeft="8dp"
         android:textColor="#FAFAFA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.373" />
+        app:layout_constraintVertical_bias="0.317" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/tallaProducto"
         android:layout_width="219dp"
-        android:layout_height="53dp"
+        android:layout_height="51dp"
         android:background="@drawable/edit_text_background"
-        android:fontFamily="@font/monti"
-        android:paddingLeft="8dp"
         android:ems="10"
+        android:fontFamily="@font/monti"
+        android:hint="Talla"
         android:inputType="text"
-        android:text="Talla"
+        android:paddingLeft="8dp"
         android:textColor="#F8F8F8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/envioGratis"
         android:layout_width="158dp"
         android:layout_height="56dp"
         android:fontFamily="@font/monti"
@@ -147,12 +165,13 @@
         app:layout_constraintVertical_bias="0.832" />
 
     <Button
-        android:id="@+id/AggImgV"
+        android:id="@+id/btAddImg"
         android:layout_width="154dp"
         android:layout_height="56dp"
         android:backgroundTint="#000000"
         android:fontFamily="@font/monti"
 
+        android:onClick="agregarFoto"
         android:text="Añadir Imagen"
         android:textColor="#FAFAFA"
         app:layout_constraintBottom_toBottomOf="parent"

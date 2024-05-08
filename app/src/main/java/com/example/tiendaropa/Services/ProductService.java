@@ -7,6 +7,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 
 import com.example.tiendaropa.Models.GeneradorIdCallBack;
+import com.example.tiendaropa.Models.IdProductCallBack;
 import com.example.tiendaropa.Models.ListProductCallBack;
 import com.example.tiendaropa.Models.Product;
 import com.example.tiendaropa.Models.ProductCallBack;
@@ -83,23 +84,17 @@ public class ProductService {
                         product.setName(documentSnapshot.getString("name"));
                         product.setDescription(documentSnapshot.getString("description"));
                         product.setSize(documentSnapshot.getString("size"));
-                        product.setPrice((Integer)documentSnapshot.get("price"));
+                        product.setPrice(Integer.parseInt(documentSnapshot.getString("price")) );
                         product.setBrand(documentSnapshot.getString("brand"));
                         product.setTypeProduct(TypeProduct.valueOf(documentSnapshot.getString("typeProduct")));
-                        product.setStock((Integer) documentSnapshot.get("stock"));
+                        product.setStock(Integer.parseInt(documentSnapshot.getString("stock")) );
                         product.setFreeShipping((boolean) documentSnapshot.get("freeShipping"));
                         productList.add(product);
 
 
                     }
                 }
-
-                if(productList.size()==0){
-                    lp.recibirProductos(null);
-                }
-                else{
-                    lp.recibirProductos(productList);
-                }
+                lp.recibirProductos(productList);
 
             }
         });
@@ -140,27 +135,50 @@ public class ProductService {
         db.collection("ids").document("idProduct").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                String id,idCompleta;
-                int idNumero;
-                id= documentSnapshot.getString("id");
-                Map<String,Object> map = new HashMap<>();
-                idNumero=(Integer) documentSnapshot.get("idNumero");
 
-                //formando Id
-                idCompleta= idNumero+id;
-                generador.recibirId(idCompleta);
+                if(documentSnapshot.exists()){
 
-                //cambiando id
-                char letra= id.charAt(0);
-                if(id.equals("z")){
-                    id="a";
+                    String idCompleta;
+                    long idNumero;
+                    long id;
+                    id= documentSnapshot.getLong("id");
+                    Map<String,Object> map = new HashMap<>();
+                    idNumero=documentSnapshot.getLong("idNumero");
+
+                    //formando Id
+                    char letra= (char) id;
+                    System.out.println("valor de letra char: "+letra);
+                    idCompleta= ""+idNumero+letra;
+
+
+                    //cambiando id
+                    if(id==122){
+                        id=97;
+                    }
+                    else{
+                        System.out.println("antes: "+id);
+                        id=id+1;
+                        System.out.println("despues: "+id);
+                    }
+
+                    idNumero=idNumero+1;
+
+
+
+                    map.put("id",id);
+
+                    map.put("idNumero",idNumero);
+
+                    System.out.println("valor de idNumero: "+map.get("idNumero"));
+                    System.out.println("valor de idLetra: "+map.get("id"));
+
+                    db.collection("ids").document("idProduct").update(map);
+                    generador.recibirId(idCompleta);
                 }
                 else{
-                    map.put("id",letra++);
-                }
-                map.put("idNumero",idNumero++);
 
-                db.collection("ids").document("idProduct").update(map);
+                }
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -170,7 +188,7 @@ public class ProductService {
         });
     }
 
-    public void InsertProduct(Product product){
+    public void InsertProduct(Product product, IdProductCallBack idProductCallBack){
 
         generadorId(new GeneradorIdCallBack() {
             @Override
@@ -187,23 +205,25 @@ public class ProductService {
 
                 update.put("size",product.getSize());
 
-                update.put("price",product.getPrice());
+                update.put("price",product.getPrice()+"");
 
                 update.put("brand",product.getBrand());
 
                 update.put("typeProduct",product.getTypeProduct().toString());
 
-                update.put("stock",product.getStock());
+                update.put("stock",product.getStock()+"");
 
                 update.put("freeShipping",product.isFreeShipping());
-                db.collection("products").document(product.getId()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                db.collection("products").document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if(!documentSnapshot.exists()){
-                            db.collection("products").document(product.getId()).set(update);
+                            db.collection("products").document(id).set(update);
+                            idProductCallBack.recibirId(id);
                             correcto= true;
                         }
                         else{
+                            idProductCallBack.recibirId(null);
                             correcto= false;
                         }
                     }

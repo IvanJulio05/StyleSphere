@@ -78,7 +78,6 @@ public class InicioFragment extends Fragment {
 
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 recyclerView.setAdapter(new MyAdapter(getActivity().getApplicationContext(),p));
-
             }
         });
 

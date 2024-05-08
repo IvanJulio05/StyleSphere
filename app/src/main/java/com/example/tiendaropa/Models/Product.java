@@ -9,7 +9,7 @@ public class Product {
     private String size;
     private int price;
     private String brand;//marca
-    private TypeProduct typeProduct;
+    private String typeProduct;
     private int stock;
     private boolean freeShipping;//envio gratis
 
@@ -20,7 +20,7 @@ public class Product {
         this.size = size;
         this.price = price;
         this.brand = brand;
-        this.typeProduct = typeProduct;
+        this.typeProduct = typeProduct.toString();
         this.stock = stock;
         this.id= id;
         this.freeShipping = freeShipping;
@@ -102,11 +102,11 @@ public class Product {
     }
 
     public TypeProduct getTypeProduct() {
-        return typeProduct;
+        return TypeProduct.valueOf(this.typeProduct);
     }
 
     public void setTypeProduct(TypeProduct typeProduct) {
-        this.typeProduct = typeProduct;
+        this.typeProduct = typeProduct.toString();
     }
 
     @Override

@@ -33,7 +33,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.nameView.setText(products.get(position).getName());
-        holder.priceView.setText(products.get(position).getPrice());
+        holder.priceView.setText("$"+products.get(position).getPrice());
         Glide.with(context).load(products.get(position).getUrl_img()).into(holder.imageView);
         if(products.get(position).isFreeShipping()){
             holder.shipmentView.setText("Envio Gratis");
