@@ -11,8 +11,9 @@ public class Product {
     private String brand;//marca
     private TypeProduct typeProduct;
     private int stock;
+    private boolean freeShipping;//envio gratis
 
-    public Product(String id,int stock,String url_img,String name,String description,String size,int price, String brand, TypeProduct typeProduct){
+    public Product(String id,int stock,String url_img,String name,String description,String size,int price, String brand, TypeProduct typeProduct,boolean freeShipping){
         this.url_img= url_img;
         this.name = name;
         this.description = description;
@@ -22,9 +23,18 @@ public class Product {
         this.typeProduct = typeProduct;
         this.stock = stock;
         this.id= id;
+        this.freeShipping = freeShipping;
     }
     public Product(){
 
+    }
+
+    public boolean isFreeShipping() {
+        return freeShipping;
+    }
+
+    public void setFreeShipping(boolean freeShipping) {
+        this.freeShipping = freeShipping;
     }
 
     public String getId() {

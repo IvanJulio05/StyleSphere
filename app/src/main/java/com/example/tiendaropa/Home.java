@@ -13,14 +13,7 @@ import android.view.MenuItem;
 
 import com.example.tiendaropa.Models.User;
 import com.example.tiendaropa.Services.UserService;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class Home extends AppCompatActivity {
 

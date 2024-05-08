@@ -7,6 +7,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 
 import com.example.tiendaropa.Models.GeneradorIdCallBack;
+import com.example.tiendaropa.Models.ListProductCallBack;
 import com.example.tiendaropa.Models.Product;
 import com.example.tiendaropa.Models.ProductCallBack;
 import com.example.tiendaropa.Models.TypeProduct;
@@ -17,10 +18,13 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,12 +55,52 @@ public class ProductService {
                     product.setBrand(documentSnapshot.getString("brand"));
                     product.setTypeProduct(TypeProduct.valueOf(documentSnapshot.getString("typeProduct")));
                     product.setStock((Integer) documentSnapshot.get("stock"));
+                    product.setFreeShipping((boolean) documentSnapshot.get("freeShipping"));
                     pcb.recibirProducto(product);
 
                 }
                 else{
                     pcb.recibirProducto(product);
                 }
+            }
+        });
+
+
+    }
+
+    public void findAllProduct(ListProductCallBack lp){
+        noExiste=false;
+        db.collection("products").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                List<Product> productList = new ArrayList<>();
+
+                for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                    if(documentSnapshot.exists()){
+                        Product product = new Product();
+                        product.setId(documentSnapshot.getString("id"));
+                        product.setUrl_img(documentSnapshot.getString("url_img"));
+                        product.setName(documentSnapshot.getString("name"));
+                        product.setDescription(documentSnapshot.getString("description"));
+                        product.setSize(documentSnapshot.getString("size"));
+                        product.setPrice((Integer)documentSnapshot.get("price"));
+                        product.setBrand(documentSnapshot.getString("brand"));
+                        product.setTypeProduct(TypeProduct.valueOf(documentSnapshot.getString("typeProduct")));
+                        product.setStock((Integer) documentSnapshot.get("stock"));
+                        product.setFreeShipping((boolean) documentSnapshot.get("freeShipping"));
+                        productList.add(product);
+
+
+                    }
+                }
+
+                if(productList.size()==0){
+                    lp.recibirProductos(null);
+                }
+                else{
+                    lp.recibirProductos(productList);
+                }
+
             }
         });
 
@@ -82,6 +126,8 @@ public class ProductService {
         update.put("typeProduct",product.getTypeProduct().toString());
 
         update.put("stock",product.getStock());
+
+        update.put("freeShipping",product.isFreeShipping());
 
         db.collection("products").document(product.getId()).update(update);
 
@@ -148,6 +194,8 @@ public class ProductService {
                 update.put("typeProduct",product.getTypeProduct().toString());
 
                 update.put("stock",product.getStock());
+
+                update.put("freeShipping",product.isFreeShipping());
                 db.collection("products").document(product.getId()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {

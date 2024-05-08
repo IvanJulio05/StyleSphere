@@ -3,10 +3,19 @@ package com.example.tiendaropa;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.tiendaropa.Models.ListProductCallBack;
+import com.example.tiendaropa.Models.Product;
+import com.example.tiendaropa.Services.ProductService;
+import com.example.tiendaropa.recycleView.MyAdapter;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,7 +32,7 @@ public class InicioFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private ProductService productService;
     public InicioFragment() {
         // Required empty public constructor
     }
@@ -59,6 +68,21 @@ public class InicioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inicio, container, false);
+        View view = inflater.inflate(R.layout.fragment_inicio,container,false);
+        RecyclerView recyclerView =(RecyclerView) view.findViewById(R.id.recyclerview);
+        productService= new ProductService();
+
+        productService.findAllProduct(new ListProductCallBack() {
+            @Override
+            public void recibirProductos(List<Product> p) {
+
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                recyclerView.setAdapter(new MyAdapter(getActivity().getApplicationContext(),p));
+
+            }
+        });
+
+
+        return view;
     }
 }

@@ -12,13 +12,6 @@ import android.widget.ImageView;
 import com.example.tiendaropa.Models.User;
 import com.example.tiendaropa.Models.UserCallBack;
 import com.example.tiendaropa.Services.UserService;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class InformacionPersonal extends AppCompatActivity {
 
