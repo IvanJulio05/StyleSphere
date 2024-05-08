@@ -6,4 +6,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="prefs_file">com.example.TiendaRopa.PREFERENCE_FILE_KEY</string>
+    <string-array name="opciones">
+        <item>Accesorios</item>
+        <item>Pantalones</item>
+        <item>Camisas</item>
+        <item>Faldas</item>
+        <item>Camisetas</item>
+        <item>Cinturones</item>
+        <item>Gorras</item>
+        <item>Joyas</item>
+
+    </string-array>
 </resources>

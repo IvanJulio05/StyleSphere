@@ -143,7 +143,8 @@ public class PerfilFragment extends Fragment {
         vender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent venderIntent = new Intent(getActivity(),Vender.class);
+                startActivity(venderIntent);
             }
         });
 
