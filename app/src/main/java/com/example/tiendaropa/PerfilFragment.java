@@ -98,9 +98,9 @@ public class PerfilFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        if(getActivity() != null && getActivity() instanceof AppCompatActivity){
+        /*if(getActivity() != null && getActivity() instanceof AppCompatActivity){
             ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-        }
+        }*/
 
         View view = inflater.inflate(R.layout.fragment_perfil,container,false);
         photoPefilUser = (ImageView) view.findViewById(R.id.imageView5);

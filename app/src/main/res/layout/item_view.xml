@@ -11,7 +11,9 @@
         android:layout_height="100dp"
         android:id="@+id/imageview"
         android:layout_marginRight="10dp"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true"
+        android:background="@color/Dark_white"
+        />
 
     <TextView
         android:layout_width="match_parent"
@@ -43,14 +45,24 @@
         android:textColor="@color/green"
         android:text="Envio Gratis"
         android:textSize="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="52dp"
         />
+
+    <TextView
+        android:id="@+id/descripcionMini"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="esta es la descripcion de mi producto el mejor del mercado"
+        android:layout_below="@+id/precio"
+        android:layout_toEndOf="@+id/imageview"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:background="#DAD8D8"
         android:layout_below="@+id/imageview"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="55dp"
         />
 
 </RelativeLayout>

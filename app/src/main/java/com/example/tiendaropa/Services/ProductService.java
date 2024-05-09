@@ -3,6 +3,8 @@ package com.example.tiendaropa.Services;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 
@@ -36,6 +38,7 @@ public class ProductService {
     boolean noExiste;
     private boolean correcto;
     private ProgressDialog progressDialog;
+
     private Product product = new Product();
 
     public void findProductById(String id, ProductCallBack pcb){
@@ -94,6 +97,44 @@ public class ProductService {
 
                     }
                 }
+                lp.recibirProductos(productList);
+
+            }
+        });
+
+
+    }
+
+    public void findAllProduct(ListProductCallBack lp,Context context){
+        progressDialog= new ProgressDialog(context);
+        progressDialog.setMessage("Cargando");
+        progressDialog.show();
+
+        noExiste=false;
+        db.collection("products").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                List<Product> productList = new ArrayList<>();
+
+                for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                    if(documentSnapshot.exists()){
+                        Product product = new Product();
+                        product.setId(documentSnapshot.getString("id"));
+                        product.setUrl_img(documentSnapshot.getString("url_img"));
+                        product.setName(documentSnapshot.getString("name"));
+                        product.setDescription(documentSnapshot.getString("description"));
+                        product.setSize(documentSnapshot.getString("size"));
+                        product.setPrice(Integer.parseInt(documentSnapshot.getString("price")) );
+                        product.setBrand(documentSnapshot.getString("brand"));
+                        product.setTypeProduct(TypeProduct.valueOf(documentSnapshot.getString("typeProduct")));
+                        product.setStock(Integer.parseInt(documentSnapshot.getString("stock")) );
+                        product.setFreeShipping((boolean) documentSnapshot.get("freeShipping"));
+                        productList.add(product);
+
+
+                    }
+                }
+                progressDialog.dismiss();
                 lp.recibirProductos(productList);
 
             }

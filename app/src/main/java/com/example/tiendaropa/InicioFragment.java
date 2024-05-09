@@ -1,7 +1,9 @@
 package com.example.tiendaropa;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.tiendaropa.Models.ListProductCallBack;
 import com.example.tiendaropa.Models.Product;
@@ -68,7 +71,13 @@ public class InicioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        /*if(getActivity() != null && getActivity() instanceof AppCompatActivity){
+            ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        }*/
         View view = inflater.inflate(R.layout.fragment_inicio,container,false);
+        TextView emailUser = view.findViewById(R.id.emailUser);
+        Intent emailInte = getActivity().getIntent();
+        emailUser.setText(emailInte.getStringExtra("email"));
         RecyclerView recyclerView =(RecyclerView) view.findViewById(R.id.recyclerview);
         productService= new ProductService();
 
@@ -79,7 +88,7 @@ public class InicioFragment extends Fragment {
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 recyclerView.setAdapter(new MyAdapter(getActivity().getApplicationContext(),p));
             }
-        });
+        },getContext());
 
 
         return view;

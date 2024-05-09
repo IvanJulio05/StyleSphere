@@ -13,7 +13,7 @@ import com.example.tiendaropa.R;
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView;
-    TextView nameView,priceView,shipmentView;//envio
+    TextView nameView,priceView,shipmentView,description;//envio
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -21,5 +21,6 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         nameView = itemView.findViewById(R.id.nombre);
         priceView =itemView.findViewById(R.id.precio);
         shipmentView = itemView.findViewById(R.id.envio);
+        description=itemView.findViewById(R.id.descripcionMini);
     }
 }

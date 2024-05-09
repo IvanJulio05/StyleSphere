@@ -86,7 +86,7 @@ public class Vender extends AppCompatActivity {
         product.setStock(Integer.parseInt(stock.getText().toString()));
         product.setDescription(description.getText().toString());
         product.setSize(size.getText().toString());
-        product.setFreeShipping(envioGratis.isSelected());
+        product.setFreeShipping(envioGratis.isChecked());
         product.setBrand(brand.getText().toString());
 
         switch (selectedOption){

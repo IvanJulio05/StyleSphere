@@ -109,6 +109,7 @@ public class Product {
         this.typeProduct = typeProduct.toString();
     }
 
+
     @Override
     public String toString() {
         return "Product{" +

@@ -41,6 +41,7 @@ public class Home extends AppCompatActivity {
 
         //Guardado de datos en la base de datos Firestora
         guardarUsuario();
+        loadFragment(inicioFragment);
     }
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
