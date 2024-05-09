@@ -6,7 +6,7 @@ public class SellerUser extends User{
 
     private List<Product> soldProducts=null;
 
-    public SellerUser(String url_img,String name, String surname, String email, String address, List<Product> shoppingCar, List<Product> favoriteProduct, List<Product> purchasedProducts, List<Product> soldProducts) {
+    public SellerUser(String url_img,String name, String surname, String email, String address, List<String> shoppingCar, List<String> favoriteProduct, List<String> purchasedProducts, List<Product> soldProducts) {
         super(url_img,name, surname, email, address, shoppingCar, favoriteProduct, purchasedProducts);
         this.soldProducts = soldProducts;
     }

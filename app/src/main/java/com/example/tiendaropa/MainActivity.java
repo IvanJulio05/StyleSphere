@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
     public void session(){
         SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
         String email = prefs.getString("email",null);
-        System.out.println("------ mira el email: "+email);
+
         if(email != null){
-            System.out.println("---------- si entrooo ---------------");
+
             showHome(email);
         }
     }

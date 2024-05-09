@@ -51,10 +51,36 @@ public class UserService {
                     user.setEmail(email);
                     user.setSurname(documentSnapshot.getString("surname"));
                     user.setAddress(documentSnapshot.getString("address"));
-                    user.setFavoriteProduct((List<Product>) documentSnapshot.get("favoriteProduct"));
-                    user.setPurchasedProducts((List<Product>) documentSnapshot.get("purchasedProduct"));
-                    user.setShoppingCar((List<Product>) documentSnapshot.get("shoppingCar"));
+                    user.setFavoriteProduct((List<String>) documentSnapshot.get("favoriteProduct"));
+                    user.setPurchasedProducts((List<String>) documentSnapshot.get("purchasedProduct"));
+                    user.setShoppingCar((List<String>) documentSnapshot.get("shoppingCar"));
                     user.setUrl_img(documentSnapshot.getString("url_img"));
+                    ucb.recibirUsuario(user);
+
+                }
+                else{
+                    ucb.recibirUsuario(null);
+                }
+            }
+        });
+
+
+    }
+
+    public void findFavoriteByEmail(String email,UserCallBack ucb){
+
+
+
+        noExiste=false;
+        db.collection("users").document(email).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+
+                if(documentSnapshot.exists()){
+
+                    user.setFavoriteProduct((List<String>) documentSnapshot.get("favoriteProduct"));
+
                     ucb.recibirUsuario(user);
 
                 }

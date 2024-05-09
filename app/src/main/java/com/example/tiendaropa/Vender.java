@@ -1,6 +1,8 @@
 package com.example.tiendaropa;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -79,42 +81,48 @@ public class Vender extends AppCompatActivity {
     }
 
     public void guardar(View view){
-        Product product = new Product();
-
-        product.setName(productName.getText().toString());
-        product.setPrice(Integer.parseInt(price.getText().toString()));
-        product.setStock(Integer.parseInt(stock.getText().toString()));
-        product.setDescription(description.getText().toString());
-        product.setSize(size.getText().toString());
-        product.setFreeShipping(envioGratis.isChecked());
-        product.setBrand(brand.getText().toString());
-
-        switch (selectedOption){
-            case "Accesorios": product.setTypeProduct(TypeProduct.ACCESSORY); break;
-            case "Pantalones":product.setTypeProduct(TypeProduct.PANTS); break;
-            case "Camisas":product.setTypeProduct(TypeProduct.SHIRT);break;
-            case "Faldas":product.setTypeProduct(TypeProduct.SKIRT); break;
-            case "Camisetas":product.setTypeProduct(TypeProduct.TSHIRT); break;
-            case "Cinturones":product.setTypeProduct(TypeProduct.BELT); break;
-            case "Gorras":product.setTypeProduct(TypeProduct.CAP); break;
-            case "Joyas":product.setTypeProduct(TypeProduct.JEWEL); break;
-            case "Zapatos":product.setTypeProduct(TypeProduct.SHOES); break;
-
-        }
-
-        //agregar imagen por defecto
         if(addFoto){
+            Product product = new Product();
+            SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
+            String email = prefs.getString("email",null);
+            product.setEmailUser(email);
+            product.setName(productName.getText().toString());
+            product.setPrice(Integer.parseInt(price.getText().toString()));
+            product.setStock(Integer.parseInt(stock.getText().toString()));
+            product.setDescription(description.getText().toString());
+            product.setSize(size.getText().toString());
+            product.setFreeShipping(envioGratis.isChecked());
+            product.setBrand(brand.getText().toString());
 
+
+            switch (selectedOption){
+                case "Accesorios": product.setTypeProduct(TypeProduct.ACCESSORY); break;
+                case "Pantalones":product.setTypeProduct(TypeProduct.PANTS); break;
+                case "Camisas":product.setTypeProduct(TypeProduct.SHIRT);break;
+                case "Faldas":product.setTypeProduct(TypeProduct.SKIRT); break;
+                case "Camisetas":product.setTypeProduct(TypeProduct.TSHIRT); break;
+                case "Cinturones":product.setTypeProduct(TypeProduct.BELT); break;
+                case "Gorras":product.setTypeProduct(TypeProduct.CAP); break;
+                case "Joyas":product.setTypeProduct(TypeProduct.JEWEL); break;
+                case "Zapatos":product.setTypeProduct(TypeProduct.SHOES); break;
+
+            }
+
+
+
+            productService.InsertProduct(product, new IdProductCallBack() {
+                @Override
+                public void recibirId(String id) {
+                    idProduct = id;
+                }
+            });
+            Toast.makeText(Vender.this, "Producto Guardado", Toast.LENGTH_SHORT).show();
+            addFoto= false;
+        }
+        else{
+            Toast.makeText(Vender.this, "Producto repetido", Toast.LENGTH_SHORT).show();
         }
 
-        productService.InsertProduct(product, new IdProductCallBack() {
-            @Override
-            public void recibirId(String id) {
-                idProduct = id;
-            }
-        });
-        Toast.makeText(Vender.this, "Producto Guardado", Toast.LENGTH_SHORT).show();
-        addFoto= false;
     }
 
     public void agregarFoto(View view){
@@ -130,6 +138,7 @@ public class Vender extends AppCompatActivity {
         else{
             Toast.makeText(Vender.this, "Primero Envia el producto", Toast.LENGTH_SHORT).show();
         }
+
 
     }
 

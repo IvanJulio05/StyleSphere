@@ -10,11 +10,11 @@ public class User {
     private String surname;
     private String email;
     private String address;
-    private List<Product> shoppingCar=null;
-    private List<Product> favoriteProduct=null;
-    private List<Product> purchasedProducts=null;//productos comprados
+    private List<String> shoppingCar=null;
+    private List<String> favoriteProduct=null;
+    private List<String> purchasedProducts=null;//productos comprados
 
-    public User(String url_img,String name, String surname, String email, String address, List<Product> shoppingCar, List<Product> favoriteProduct, List<Product> purchasedProducts) {
+    public User(String url_img,String name, String surname, String email, String address, List<String> shoppingCar, List<String> favoriteProduct, List<String> purchasedProducts) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -86,29 +86,67 @@ public class User {
         this.address = address;
     }
 
-    public List<Product> getShoppingCar() {
+    public List<String> getShoppingCar() {
         return shoppingCar;
     }
 
-    public void setShoppingCar(List<Product> shoppingCar) {
+    public void setShoppingCar(List<String> shoppingCar) {
         this.shoppingCar = shoppingCar;
     }
 
-    public List<Product> getFavoriteProduct() {
+    public boolean setShoppingCar(String id){
+
+        boolean noRepetida = true;
+        for(String x:this.shoppingCar){
+            if(x.equals(id)){
+                noRepetida = false;
+                break;
+            }
+        }
+
+        if(noRepetida){
+            this.shoppingCar.add(id);
+        }
+
+        return noRepetida;
+    }
+
+    public List<String> getFavoriteProduct() {
         return favoriteProduct;
     }
 
-    public void setFavoriteProduct(List<Product> favoriteProduct) {
+    public void setFavoriteProduct(List<String> favoriteProduct) {
         this.favoriteProduct = favoriteProduct;
     }
+    public void setFavoriteProduct(String favoriteProduct) {
+        this.favoriteProduct.add(favoriteProduct);
+    }
 
-    public List<Product> getPurchasedProducts() {
+    public List<String> getPurchasedProducts() {
         return purchasedProducts;
     }
 
-    public void setPurchasedProducts(List<Product> purchasedProducts) {
+    public void setPurchasedProducts(List<String> purchasedProducts) {
         this.purchasedProducts = purchasedProducts;
     }
+
+    public void borrarUnFavorito(String x){
+        favoriteProduct.remove(x);
+    }
+
+    public boolean existe(String x){
+
+        boolean exi = false;
+
+        for(String i:this.favoriteProduct){
+            if(i.equals(x)){
+                exi = true;
+                break;
+            }
+        }
+        return exi;
+    }
+
 
     @Override
     public String toString() {

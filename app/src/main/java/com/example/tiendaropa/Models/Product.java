@@ -1,6 +1,8 @@
 package com.example.tiendaropa.Models;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
 
     private String id;
     private String url_img;
@@ -11,6 +13,7 @@ public class Product {
     private String brand;//marca
     private String typeProduct;
     private int stock;
+    private String emailUser;
     private boolean freeShipping;//envio gratis
 
     public Product(String id,int stock,String url_img,String name,String description,String size,int price, String brand, TypeProduct typeProduct,boolean freeShipping){
@@ -25,8 +28,29 @@ public class Product {
         this.id= id;
         this.freeShipping = freeShipping;
     }
+    public Product(String id,int stock,String url_img,String name,String description,String size,int price, String brand, TypeProduct typeProduct,boolean freeShipping,String emailUser){
+        this.url_img= url_img;
+        this.name = name;
+        this.description = description;
+        this.size = size;
+        this.price = price;
+        this.brand = brand;
+        this.typeProduct = typeProduct.toString();
+        this.stock = stock;
+        this.id= id;
+        this.freeShipping = freeShipping;
+        this.emailUser = emailUser;
+    }
     public Product(){
 
+    }
+
+    public String getEmailUser() {
+        return emailUser;
+    }
+
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
     }
 
     public boolean isFreeShipping() {

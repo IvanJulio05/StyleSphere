@@ -3,6 +3,7 @@ package com.example.tiendaropa;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -69,7 +70,9 @@ public class InformacionPersonal extends AppCompatActivity {
                     user.setSurname(surname);
                     user.setAddress(address);
                     userService.updateUser(user);
-                    showAlert("Datos guardados correctamente","Guardar Datos");
+
+                    showAlert("Datos guardados correctamente","Guardar Datos",true);
+
                 }
                 else{
                     showAlert("Error al guardar los datos","Error");
@@ -87,5 +90,21 @@ public class InformacionPersonal extends AppCompatActivity {
     private void showAlert(String mensaje,String title){
         new AlertDialog.Builder(this).setTitle(title).
                 setMessage(mensaje).setPositiveButton(android.R.string.yes, null).show();
+    }
+    private void showAlert(String mensaje,String title,boolean salir){
+        if(salir){
+            new AlertDialog.Builder(this).setTitle(title).
+                    setMessage(mensaje).setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    }).show();
+        }
+        else{
+            new AlertDialog.Builder(this).setTitle(title).
+                    setMessage(mensaje).setPositiveButton(android.R.string.yes, null).show();
+        }
+
     }
 }

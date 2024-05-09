@@ -224,9 +224,9 @@ public class PerfilFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         // Mostrar la barra superior cuando el fragmento ya no está visible
-        if (getActivity() != null && getActivity() instanceof AppCompatActivity) {
+        /*if (getActivity() != null && getActivity() instanceof AppCompatActivity) {
             ((AppCompatActivity) getActivity()).getSupportActionBar().show();
-        }
+        }*/
     }
 
 

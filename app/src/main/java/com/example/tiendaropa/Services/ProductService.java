@@ -51,6 +51,7 @@ public class ProductService {
                 if(documentSnapshot.exists()){
 
                     product.setId(id);
+                    product.setEmailUser(documentSnapshot.getString("emailUser"));
                     product.setUrl_img(documentSnapshot.getString("url_img"));
                     product.setName(documentSnapshot.getString("name"));
                     product.setDescription(documentSnapshot.getString("description"));
@@ -83,6 +84,7 @@ public class ProductService {
                     if(documentSnapshot.exists()){
                         Product product = new Product();
                         product.setId(documentSnapshot.getString("id"));
+                        product.setEmailUser(documentSnapshot.getString("emailUser"));
                         product.setUrl_img(documentSnapshot.getString("url_img"));
                         product.setName(documentSnapshot.getString("name"));
                         product.setDescription(documentSnapshot.getString("description"));
@@ -120,6 +122,7 @@ public class ProductService {
                     if(documentSnapshot.exists()){
                         Product product = new Product();
                         product.setId(documentSnapshot.getString("id"));
+                        product.setEmailUser(documentSnapshot.getString("emailUser"));
                         product.setUrl_img(documentSnapshot.getString("url_img"));
                         product.setName(documentSnapshot.getString("name"));
                         product.setDescription(documentSnapshot.getString("description"));
@@ -154,6 +157,8 @@ public class ProductService {
         update.put("description",product.getDescription());
 
         update.put("size",product.getSize());
+
+        update.put("emailUser",product.getEmailUser());
 
         update.put("price",product.getPrice());
 
@@ -241,6 +246,8 @@ public class ProductService {
                 update.put("url_img",product.getUrl_img());
 
                 update.put("name",product.getName());
+
+                update.put("emailUser",product.getEmailUser());
 
                 update.put("description",product.getDescription());
 

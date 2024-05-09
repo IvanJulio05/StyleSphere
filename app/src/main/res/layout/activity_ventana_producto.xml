@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VentanaProducto">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/stockProductVent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nuevo | 5 disponibles"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/nombreProductoVentana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre Del producto"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/imgProduct"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:background="@color/Dark_white"
+                />
+            <TextView
+                android:id="@+id/precioProductoVentana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$ 20000"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/btFavorito"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/corazon"
+                android:layout_marginLeft="335dp"
+                />
+
+            <EditText
+                android:id="@+id/cantidadProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:inputType="number"
+                android:hint="Cantidad: 1"
+                android:textSize="15dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ver todos los metodo de pago"
+                android:textColor="@color/light_blue_600"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                />
+
+            <TextView
+                android:id="@+id/EnvioGratisVentana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Envio gratis"
+                android:textColor="@color/green"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                />
+            <Button
+                android:id="@+id/btCamprar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/botonlogin"
+                android:text="Comprar ahora"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+            <Button
+                android:id="@+id/btCarrito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bt_carrito"
+                android:layout_marginTop="9dp"
+                android:text="Agregar al carrito"
+                android:textColor="@color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DAD8D8"
+                android:layout_below="@+id/imageview"
+                android:layout_marginTop="55dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="Caracteristicas"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                />
+            <TextView
+                android:id="@+id/caracMarcarProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="Marca: mi marca"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/caracTallaProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:text="Size: mi talla"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/caracTypeProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:text="Categoria: tennis"
+                android:textSize="17dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DAD8D8"
+                android:layout_below="@+id/imageview"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Descripcion"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                />
+            <TextView
+                android:id="@+id/caracDescripProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="Esta es la descripcion de mi
+                producto el mejor del mercado del mercado compra ahora te lo agradezco"
+                android:textSize="17dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DAD8D8"
+                android:layout_below="@+id/imageview"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/nombreVendedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Vendido por Ivan camilo"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                />
+
+            <include
+                android:id="@+id/include"
+
+                layout="@layout/item_view" />
+
+            <Button
+                android:id="@+id/btVerMasProductos"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/bt_mas_productos"
+                android:text="Ver mas productos del vendedor"
+                android:textColor="@color/light_blue_900"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DAD8D8"
+                android:layout_below="@+id/imageview"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:id="@+id/mediosDePago"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Medios de pago"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                />
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/nequi"
+                />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tiendaropa.Models.ListProductCallBack;
 import com.example.tiendaropa.Models.Product;
@@ -86,7 +87,20 @@ public class InicioFragment extends Fragment {
             public void recibirProductos(List<Product> p) {
 
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                recyclerView.setAdapter(new MyAdapter(getActivity().getApplicationContext(),p));
+
+                MyAdapter myAdapter = new MyAdapter(getActivity().getApplicationContext(),p);
+                myAdapter.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Bundle pro = new Bundle();
+                        pro.putSerializable("product",p.get(recyclerView.getChildAdapterPosition(v)));
+
+                        Intent productInte = new Intent(getContext(),VentanaProducto.class);
+                        productInte.putExtras(pro);
+                        startActivity(productInte);
+                    }
+                });
+                recyclerView.setAdapter(myAdapter);
             }
         },getContext());
 
